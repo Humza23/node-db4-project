@@ -6,37 +6,7 @@ async function getRecipeById(recipe_id) {
         .join('steps_ingredients as si', 'st.step_id', 'si.step_id')
         .join('ingredients as ing', 'si.ingredient_id', 'ing.ingredient_id')
         .where('rp.recipe_id', recipe_id)
-    //select rp.*, st.*, ing.*,si.ingredient_quantity FROM recipes as rp
-    // join steps as st on rp.recipe_id = st.recipe_id
-    // join steps_ingredients as si on st.step_id = si.step_id
-    // join ingredients as ing on si.ingredient_id = ing.ingredient_id
-    // const result = {
-    //     recipe_id: rows[0].recipe_id,
-    //     recipe_name: rows[0].recipe_name,
-    //     created_at: rows[0].created_at,
-    //     steps: []
-    // }
-    // rows.forEach(row => {
-    //     if(row.step_id) {
-    //         result.steps.push({
-    //             step_id: row.step_id,
-    //             step_number: row.step_number,
-    //             step_instructions: row.step_instructions,
-    //             ingredients: []
-    //         })
-    //     }
-    // })
-    // rows.forEach(row => {
-    //     if(row.ingredients_id) {
-    //         result.steps.push({
-    //             ingredients: 
-    //             {ingredient_id: row.ingredient_id,
-    //             ingredient_name: row.ingredient_name,
-    //             quantity: row.quantity}
-    //         })
-    //     }
-    // })
-    // return result
+
     const steps = data.map(x => {
         return {
           step_id: x.step_id,
